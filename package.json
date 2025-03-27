@@ -4,14 +4,15 @@
   "description": "swagger to postman helper",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "bin": "dist/index.js",
+  "bin": {
+    "swagger2postman": "./dist/index.js"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "ts-node src/index.ts",
     "test": "ts-node src/index.ts -s test",
     "prepare": "npm run build",
-    "postbuild": "chmod +x dist/index.js",
     "prepublishOnly": "npm run build",
     "version:patch": "npm version patch",
     "version:minor": "npm version minor",

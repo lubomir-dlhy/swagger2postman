@@ -3,14 +3,15 @@
     "target": "es2018",
     "module": "commonjs",
     "esModuleInterop": true,
-    "outDir": "./dist",
+    "outDir": "dist",
     "rootDir": "./src",
     "strict": true,
-    "declaration": false,
+    "declaration": true,
     "sourceMap": false,
     "resolveJsonModule": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "preserveConstEnums": true
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.test.ts", "dist"]
+  "exclude": ["node_modules", "**/*.spec.ts", "dist"]
 }
