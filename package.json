@@ -2,26 +2,35 @@
   "name": "swagger2postman",
   "version": "1.0.0",
   "description": "swagger to postman helper",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "node index.js -s test"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "test": "ts-node src/index.ts -s test",
+    "prepare": "npm run build"
   },
   "keywords": [
     "swagger",
     "postman",
     "v2"
   ],
-  "author": "jiangyuesong",
-  "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",
     "commander": "^6.2.0",
     "config": "^3.3.3",
     "dotenv": "^16.0.3",
     "openapi-to-postmanv2": "^4.10.2",
-    "pinyin": "^2.9.1"
+    "postman-collection": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/config": "^3.3.0",
+    "@types/node": "^18.15.0",
+    "@types/pinyin": "^2.8.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
   },
   "bin": {
-    "apih": "./index.js"
+    "apih": "./dist/index.js"
   }
 }

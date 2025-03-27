@@ -1,0 +1,3143 @@
+{
+  "collection": {
+    "info": {
+      "_postman_id": "f37d61bc-581b-4f01-b37e-aa70c9994138",
+      "name": "TBIdeapp-API",
+      "description": "TBIdeapp-API API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "updatedAt": "2025-03-27T15:28:55.000Z",
+      "createdAt": "2025-03-27T15:28:48.000Z",
+      "lastUpdatedBy": "21815003",
+      "uid": "21815003-f37d61bc-581b-4f01-b37e-aa70c9994138"
+    },
+    "item": [
+      {
+        "name": "api",
+        "item": [
+          {
+            "name": "maintenance",
+            "item": [
+              {
+                "name": "get Api Maintenance Sentry",
+                "id": "e28c8645-92ac-4a2d-9943-fcf240150441",
+                "protocolProfileBehavior": {
+                  "disableBodyPruning": true
+                },
+                "request": {
+                  "method": "GET",
+                  "header": [],
+                  "url": {
+                    "raw": "{{baseUrl}}/api/maintenance/sentry/",
+                    "host": [
+                      "{{baseUrl}}"
+                    ],
+                    "path": [
+                      "api",
+                      "maintenance",
+                      "sentry",
+                      ""
+                    ]
+                  },
+                  "description": "<p>Permission: false</p><p></p>"
+                },
+                "response": [],
+                "uid": "21815003-e28c8645-92ac-4a2d-9943-fcf240150441"
+              },
+              {
+                "name": "get Api Maintenance Version",
+                "id": "dc66e350-e9cc-466a-b827-cb9aa8ce4c4e",
+                "protocolProfileBehavior": {
+                  "disableBodyPruning": true
+                },
+                "request": {
+                  "method": "GET",
+                  "header": [
+                    {
+                      "key": "Accept",
+                      "value": "application/json"
+                    }
+                  ],
+                  "url": {
+                    "raw": "{{baseUrl}}/api/maintenance/version/",
+                    "host": [
+                      "{{baseUrl}}"
+                    ],
+                    "path": [
+                      "api",
+                      "maintenance",
+                      "version",
+                      ""
+                    ]
+                  },
+                  "description": "<p>Permission: false</p><p></p>"
+                },
+                "response": [
+                  {
+                    "id": "e2527c02-ea83-4a76-a8d4-70a03f332b79",
+                    "name": "Success response",
+                    "originalRequest": {
+                      "method": "GET",
+                      "header": [],
+                      "url": {
+                        "raw": "{{baseUrl}}/api/maintenance/version/",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "maintenance",
+                          "version",
+                          ""
+                        ]
+                      }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n  \"name\": \"in labo\",\n  \"version\": \"occaecat anim\",\n  \"env\": \"ut\",\n  \"envConfig\": \"id\",\n  \"envSentry\": \"magna sed culpa\"\n}",
+                    "uid": "21815003-e2527c02-ea83-4a76-a8d4-70a03f332b79"
+                  }
+                ],
+                "uid": "21815003-dc66e350-e9cc-466a-b827-cb9aa8ce4c4e"
+              },
+              {
+                "name": "get Api Maintenance Health",
+                "id": "4cfb50cd-3a0f-4267-bc6b-98570d18bbe7",
+                "protocolProfileBehavior": {
+                  "disableBodyPruning": true
+                },
+                "request": {
+                  "method": "GET",
+                  "header": [
+                    {
+                      "key": "Accept",
+                      "value": "application/json"
+                    }
+                  ],
+                  "url": {
+                    "raw": "{{baseUrl}}/api/maintenance/health/",
+                    "host": [
+                      "{{baseUrl}}"
+                    ],
+                    "path": [
+                      "api",
+                      "maintenance",
+                      "health",
+                      ""
+                    ],
+                    "query": [
+                      {
+                        "key": "database",
+                        "value": "true",
+                        "disabled": true
+                      }
+                    ]
+                  },
+                  "description": "<p>Permission: false</p><p></p>"
+                },
+                "response": [
+                  {
+                    "id": "14b61975-510c-41bd-a855-a5fca9447efe",
+                    "name": "Success response",
+                    "originalRequest": {
+                      "method": "GET",
+                      "header": [],
+                      "url": {
+                        "raw": "{{baseUrl}}/api/maintenance/health/?database=true",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "maintenance",
+                          "health",
+                          ""
+                        ],
+                        "query": [
+                          {
+                            "key": "database",
+                            "value": "true"
+                          }
+                        ]
+                      }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n  \"status\": 200,\n  \"details\": {\n    \"database\": 200\n  }\n}",
+                    "uid": "21815003-14b61975-510c-41bd-a855-a5fca9447efe"
+                  }
+                ],
+                "uid": "21815003-4cfb50cd-3a0f-4267-bc6b-98570d18bbe7"
+              }
+            ],
+            "id": "8ee1557d-75ed-462d-9b42-8b6c3b052eeb",
+            "uid": "21815003-8ee1557d-75ed-462d-9b42-8b6c3b052eeb"
+          },
+          {
+            "name": "redirects",
+            "item": [
+              {
+                "name": "get Api Redirects Confirm Invitation",
+                "id": "d986a714-c3a2-4d3f-9285-ebf87ab55a50",
+                "protocolProfileBehavior": {
+                  "disableBodyPruning": true
+                },
+                "request": {
+                  "method": "GET",
+                  "header": [
+                    {
+                      "key": "Accept",
+                      "value": "application/json"
+                    }
+                  ],
+                  "url": {
+                    "raw": "{{baseUrl}}/api/redirects/confirm-invitation?t=sint sunt&lang=sint sunt",
+                    "host": [
+                      "{{baseUrl}}"
+                    ],
+                    "path": [
+                      "api",
+                      "redirects",
+                      "confirm-invitation"
+                    ],
+                    "query": [
+                      {
+                        "key": "t",
+                        "value": "sint sunt",
+                        "description": "(Required) "
+                      },
+                      {
+                        "key": "lang",
+                        "value": "sint sunt",
+                        "description": "(Required) "
+                      }
+                    ]
+                  },
+                  "description": "<p>Permission: false</p><p></p>"
+                },
+                "response": [
+                  {
+                    "id": "0abe5f66-f8ad-4eea-ae66-c7709968ac83",
+                    "name": "Success response",
+                    "originalRequest": {
+                      "method": "GET",
+                      "header": [],
+                      "url": {
+                        "raw": "{{baseUrl}}/api/redirects/confirm-invitation?t=sint sunt&lang=sint sunt",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "redirects",
+                          "confirm-invitation"
+                        ],
+                        "query": [
+                          {
+                            "key": "t",
+                            "value": "sint sunt"
+                          },
+                          {
+                            "key": "lang",
+                            "value": "sint sunt"
+                          }
+                        ]
+                      }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{}",
+                    "uid": "21815003-0abe5f66-f8ad-4eea-ae66-c7709968ac83"
+                  }
+                ],
+                "uid": "21815003-d986a714-c3a2-4d3f-9285-ebf87ab55a50"
+              },
+              {
+                "name": "get Api Redirects Confirm Sign Up",
+                "id": "409a5e9b-a104-4c42-91bb-a258ded711d0",
+                "protocolProfileBehavior": {
+                  "disableBodyPruning": true
+                },
+                "request": {
+                  "method": "GET",
+                  "header": [
+                    {
+                      "key": "Accept",
+                      "value": "application/json"
+                    }
+                  ],
+                  "url": {
+                    "raw": "{{baseUrl}}/api/redirects/confirm-sign-up?t=sint sunt&lang=sint sunt",
+                    "host": [
+                      "{{baseUrl}}"
+                    ],
+                    "path": [
+                      "api",
+                      "redirects",
+                      "confirm-sign-up"
+                    ],
+                    "query": [
+                      {
+                        "key": "t",
+                        "value": "sint sunt",
+                        "description": "(Required) "
+                      },
+                      {
+                        "key": "lang",
+                        "value": "sint sunt",
+                        "description": "(Required) "
+                      }
+                    ]
+                  },
+                  "description": "<p>Permission: false</p><p></p>"
+                },
+                "response": [
+                  {
+                    "id": "a07f497e-09cb-4b41-8461-a354bee2e0c9",
+                    "name": "Success response",
+                    "originalRequest": {
+                      "method": "GET",
+                      "header": [],
+                      "url": {
+                        "raw": "{{baseUrl}}/api/redirects/confirm-sign-up?t=sint sunt&lang=sint sunt",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "redirects",
+                          "confirm-sign-up"
+                        ],
+                        "query": [
+                          {
+                            "key": "t",
+                            "value": "sint sunt"
+                          },
+                          {
+                            "key": "lang",
+                            "value": "sint sunt"
+                          }
+                        ]
+                      }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{}",
+                    "uid": "21815003-a07f497e-09cb-4b41-8461-a354bee2e0c9"
+                  }
+                ],
+                "uid": "21815003-409a5e9b-a104-4c42-91bb-a258ded711d0"
+              },
+              {
+                "name": "get Api Redirects Reset Password",
+                "id": "66a4656e-6b24-49eb-b69d-b05e8e33a200",
+                "protocolProfileBehavior": {
+                  "disableBodyPruning": true
+                },
+                "request": {
+                  "method": "GET",
+                  "header": [
+                    {
+                      "key": "Accept",
+                      "value": "application/json"
+                    }
+                  ],
+                  "url": {
+                    "raw": "{{baseUrl}}/api/redirects/reset-password?t=sint sunt&lang=sint sunt",
+                    "host": [
+                      "{{baseUrl}}"
+                    ],
+                    "path": [
+                      "api",
+                      "redirects",
+                      "reset-password"
+                    ],
+                    "query": [
+                      {
+                        "key": "t",
+                        "value": "sint sunt",
+                        "description": "(Required) "
+                      },
+                      {
+                        "key": "lang",
+                        "value": "sint sunt",
+                        "description": "(Required) "
+                      }
+                    ]
+                  },
+                  "description": "<p>Permission: false</p><p></p>"
+                },
+                "response": [
+                  {
+                    "id": "cfca183d-abf1-430b-b67b-656d5545b514",
+                    "name": "Success response",
+                    "originalRequest": {
+                      "method": "GET",
+                      "header": [],
+                      "url": {
+                        "raw": "{{baseUrl}}/api/redirects/reset-password?t=sint sunt&lang=sint sunt",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "redirects",
+                          "reset-password"
+                        ],
+                        "query": [
+                          {
+                            "key": "t",
+                            "value": "sint sunt"
+                          },
+                          {
+                            "key": "lang",
+                            "value": "sint sunt"
+                          }
+                        ]
+                      }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{}",
+                    "uid": "21815003-cfca183d-abf1-430b-b67b-656d5545b514"
+                  }
+                ],
+                "uid": "21815003-66a4656e-6b24-49eb-b69d-b05e8e33a200"
+              }
+            ],
+            "id": "d375473d-a181-4f37-9b69-5aa94d5f4faf",
+            "uid": "21815003-d375473d-a181-4f37-9b69-5aa94d5f4faf"
+          },
+          {
+            "name": "web",
+            "item": [
+              {
+                "name": "auth",
+                "item": [
+                  {
+                    "name": "social",
+                    "item": [
+                      {
+                        "name": "{provider}",
+                        "item": [
+                          {
+                            "name": "post Api Web Auth Social Provider Callback",
+                            "id": "42ad7655-bac3-40cf-8e39-d61d7ed30e30",
+                            "protocolProfileBehavior": {
+                              "disableBodyPruning": true
+                            },
+                            "request": {
+                              "method": "POST",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "key": "Accept",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": {
+                                "mode": "raw",
+                                "raw": "{\n  \"code\": \"culpa mollit\",\n  \"state\": \"irure ipsum\"\n}",
+                                "options": {
+                                  "raw": {
+                                    "language": "json"
+                                  }
+                                }
+                              },
+                              "url": {
+                                "raw": "{{baseUrl}}/api/web/auth/social/:provider/callback",
+                                "host": [
+                                  "{{baseUrl}}"
+                                ],
+                                "path": [
+                                  "api",
+                                  "web",
+                                  "auth",
+                                  "social",
+                                  ":provider",
+                                  "callback"
+                                ],
+                                "variable": [
+                                  {
+                                    "id": "89b1b25b-0286-4cc8-8e2f-b1035b6096a6",
+                                    "key": "provider",
+                                    "value": "MICROSOFT",
+                                    "description": "(Required) "
+                                  }
+                                ]
+                              },
+                              "description": "Verifies authorization code with provider.<br><p>Permission: false</p><p></p>"
+                            },
+                            "response": [
+                              {
+                                "id": "9cb235ae-288c-4bae-a0ee-c9c62792b427",
+                                "name": "Success response",
+                                "originalRequest": {
+                                  "method": "POST",
+                                  "header": [],
+                                  "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"code\": \"culpa mollit\",\n  \"state\": \"irure ipsum\"\n}",
+                                    "options": {
+                                      "raw": {
+                                        "language": "json"
+                                      }
+                                    }
+                                  },
+                                  "url": {
+                                    "raw": "{{baseUrl}}/api/web/auth/social/:provider/callback",
+                                    "host": [
+                                      "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                      "api",
+                                      "web",
+                                      "auth",
+                                      "social",
+                                      ":provider",
+                                      "callback"
+                                    ],
+                                    "variable": [
+                                      {
+                                        "key": "provider",
+                                        "value": "MICROSOFT",
+                                        "description": "(Required) "
+                                      }
+                                    ]
+                                  }
+                                },
+                                "status": "OK",
+                                "code": 200,
+                                "_postman_previewlanguage": "json",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": "{\n  \"accessToken\": \"eu in\",\n  \"refreshToken\": \"sit\",\n  \"signUpToken\": \"in enim cillum \",\n  \"user\": {\n    \"id\": \"311d35d6-9088-99bb-877b-922a8cc06bdb\",\n    \"email\": \"ut labore amet\",\n    \"role\": \"INNOVATION_MANAGER\",\n    \"status\": \"PENDING_INVITATION\",\n    \"name\": \"do enim\"\n  },\n  \"organization\": {\n    \"id\": \"urn:uuid:40e8264b-5670-9ae2-53da-3ca420081278\",\n    \"name\": \"dolore laboris occaecat quis pariatur\"\n  }\n}",
+                                "uid": "21815003-9cb235ae-288c-4bae-a0ee-c9c62792b427"
+                              }
+                            ],
+                            "uid": "21815003-42ad7655-bac3-40cf-8e39-d61d7ed30e30"
+                          },
+                          {
+                            "name": "get Api Web Auth Social Provider Signup",
+                            "id": "bd9fadfa-81c1-43b6-96f0-a80b087ce092",
+                            "protocolProfileBehavior": {
+                              "disableBodyPruning": true
+                            },
+                            "request": {
+                              "method": "GET",
+                              "header": [
+                                {
+                                  "key": "Accept",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "url": {
+                                "raw": "{{baseUrl}}/api/web/auth/social/:provider/signup",
+                                "host": [
+                                  "{{baseUrl}}"
+                                ],
+                                "path": [
+                                  "api",
+                                  "web",
+                                  "auth",
+                                  "social",
+                                  ":provider",
+                                  "signup"
+                                ],
+                                "variable": [
+                                  {
+                                    "id": "bac33be3-f7b7-42db-a32d-e139e2555f5b",
+                                    "key": "provider",
+                                    "value": "MICROSOFT",
+                                    "description": "(Required) "
+                                  }
+                                ]
+                              },
+                              "description": "Redirect to provider login.<br><p>Permission: false</p><p></p>"
+                            },
+                            "response": [
+                              {
+                                "id": "5e5272c0-9f20-414b-befe-1a5291a617e8",
+                                "name": "Success response",
+                                "originalRequest": {
+                                  "method": "GET",
+                                  "header": [],
+                                  "url": {
+                                    "raw": "{{baseUrl}}/api/web/auth/social/:provider/signup",
+                                    "host": [
+                                      "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                      "api",
+                                      "web",
+                                      "auth",
+                                      "social",
+                                      ":provider",
+                                      "signup"
+                                    ],
+                                    "variable": [
+                                      {
+                                        "key": "provider",
+                                        "value": "MICROSOFT",
+                                        "description": "(Required) "
+                                      }
+                                    ]
+                                  }
+                                },
+                                "status": "OK",
+                                "code": 200,
+                                "_postman_previewlanguage": "json",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": "{\n  \"location\": \"minim aute culpa\"\n}",
+                                "uid": "21815003-5e5272c0-9f20-414b-befe-1a5291a617e8"
+                              }
+                            ],
+                            "uid": "21815003-bd9fadfa-81c1-43b6-96f0-a80b087ce092"
+                          },
+                          {
+                            "name": "get Api Web Auth Social Provider Signin Organization",
+                            "id": "9080e991-11a7-4cde-afca-85bcbd72e575",
+                            "protocolProfileBehavior": {
+                              "disableBodyPruning": true
+                            },
+                            "request": {
+                              "method": "GET",
+                              "header": [
+                                {
+                                  "key": "Accept",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "url": {
+                                "raw": "{{baseUrl}}/api/web/auth/social/:provider/signin/:organization",
+                                "host": [
+                                  "{{baseUrl}}"
+                                ],
+                                "path": [
+                                  "api",
+                                  "web",
+                                  "auth",
+                                  "social",
+                                  ":provider",
+                                  "signin",
+                                  ":organization"
+                                ],
+                                "query": [
+                                  {
+                                    "key": "adminScopes",
+                                    "value": "false",
+                                    "disabled": true
+                                  }
+                                ],
+                                "variable": [
+                                  {
+                                    "id": "8aabe47d-21bb-43a7-b910-6409a72858cc",
+                                    "key": "provider",
+                                    "value": "MICROSOFT",
+                                    "description": "(Required) "
+                                  },
+                                  {
+                                    "id": "5bc1f1bd-b504-4bdc-bf08-afc21bdd3027",
+                                    "key": "organization",
+                                    "value": "sint sunt",
+                                    "description": "(Required) "
+                                  }
+                                ]
+                              },
+                              "description": "Redirect to provider login.<br><p>Permission: false</p><p></p>"
+                            },
+                            "response": [
+                              {
+                                "id": "8a3196fc-32da-4d45-9be5-b749580b3653",
+                                "name": "Success response",
+                                "originalRequest": {
+                                  "method": "GET",
+                                  "header": [],
+                                  "url": {
+                                    "raw": "{{baseUrl}}/api/web/auth/social/:provider/signin/:organization?adminScopes=false",
+                                    "host": [
+                                      "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                      "api",
+                                      "web",
+                                      "auth",
+                                      "social",
+                                      ":provider",
+                                      "signin",
+                                      ":organization"
+                                    ],
+                                    "query": [
+                                      {
+                                        "key": "adminScopes",
+                                        "value": "false"
+                                      }
+                                    ],
+                                    "variable": [
+                                      {
+                                        "key": "provider",
+                                        "value": "MICROSOFT",
+                                        "description": "(Required) "
+                                      },
+                                      {
+                                        "key": "organization",
+                                        "value": "sint sunt",
+                                        "description": "(Required) "
+                                      }
+                                    ]
+                                  }
+                                },
+                                "status": "OK",
+                                "code": 200,
+                                "_postman_previewlanguage": "json",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": "{\n  \"location\": \"minim aute culpa\"\n}",
+                                "uid": "21815003-8a3196fc-32da-4d45-9be5-b749580b3653"
+                              }
+                            ],
+                            "uid": "21815003-9080e991-11a7-4cde-afca-85bcbd72e575"
+                          }
+                        ],
+                        "id": "d9c2bebf-fa26-4dea-a0d6-e698277bb146",
+                        "uid": "21815003-d9c2bebf-fa26-4dea-a0d6-e698277bb146"
+                      }
+                    ],
+                    "id": "babb9d8b-8854-448b-a463-87476289c938",
+                    "uid": "21815003-babb9d8b-8854-448b-a463-87476289c938"
+                  },
+                  {
+                    "name": "get Api Web Auth Profile",
+                    "id": "b333a7f2-67a5-4a20-93c6-a0d185b2aa34",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "auth": {
+                        "type": "bearer",
+                        "bearer": [
+                          {
+                            "key": "token",
+                            "value": "{{bearerToken}}",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "method": "GET",
+                      "header": [
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/auth/profile",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "auth",
+                          "profile"
+                        ]
+                      },
+                      "description": "Endpoint is used for getting detail of logged user.<br><p>Permission: false</p><p></p>"
+                    },
+                    "response": [
+                      {
+                        "id": "6b928eb2-6e72-4795-b98b-c10bc59d2914",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "GET",
+                          "header": [
+                            {
+                              "description": "Added as a part of security scheme: bearer",
+                              "key": "Authorization",
+                              "value": "Bearer <token>"
+                            }
+                          ],
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/auth/profile",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "auth",
+                              "profile"
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"user\": {\n    \"id\": \"ac6876f5-56b3-ec17-0e17-3085aeee1965\",\n    \"email\": \"ut ut\",\n    \"role\": \"EMPLOYEE\",\n    \"status\": \"PENDING_INVITATION\",\n    \"loginMethod\": \"MICROSOFT\",\n    \"name\": \"do aliqua\"\n  },\n  \"onboarding\": {\n    \"completed\": true,\n    \"step\": \"USER_INVITATION\"\n  }\n}",
+                        "uid": "21815003-6b928eb2-6e72-4795-b98b-c10bc59d2914"
+                      }
+                    ],
+                    "uid": "21815003-b333a7f2-67a5-4a20-93c6-a0d185b2aa34"
+                  },
+                  {
+                    "name": "post Api Web Auth Confirm Invitation",
+                    "id": "d7d3adea-b0e9-4642-a2a0-6a28beed4749",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "auth": {
+                        "type": "bearer",
+                        "bearer": [
+                          {
+                            "key": "token",
+                            "value": "{{bearerToken}}",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "method": "POST",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "body": {
+                        "mode": "raw",
+                        "raw": "{\n  \"password\": \"^\\\"-z]]w{I4O:pw\",\n  \"gdprConsent\": true,\n  \"termsAndConditionsConsent\": false\n}",
+                        "options": {
+                          "raw": {
+                            "language": "json"
+                          }
+                        }
+                      },
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/auth/confirm-invitation",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "auth",
+                          "confirm-invitation"
+                        ]
+                      },
+                      "description": "Endpoint is used for password reset.<br><p>Permission: false</p><p></p>"
+                    },
+                    "response": [
+                      {
+                        "id": "d8f2d5bc-79a3-4a61-ab82-347767f18f13",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "POST",
+                          "header": [
+                            {
+                              "description": "Added as a part of security scheme: bearer",
+                              "key": "Authorization",
+                              "value": "Bearer <token>"
+                            }
+                          ],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"password\": \"^\\\"-z]]w{I4O:pw\",\n  \"gdprConsent\": true,\n  \"termsAndConditionsConsent\": false\n}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/auth/confirm-invitation",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "auth",
+                              "confirm-invitation"
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"accessToken\": \"id cillum enim\",\n  \"refreshToken\": \"ea nostrud minim Ut\",\n  \"messages\": [\n    {\n      \"message\": \"aute mollit esse consectetur do\",\n      \"type\": \"SUCCESS\"\n    },\n    {\n      \"message\": \"Duis nisi\",\n      \"type\": \"SUCCESS\"\n    }\n  ],\n  \"user\": {\n    \"id\": \"urn:uuid:fb7472fe-5579-0ed8-913a-31d27faf5c76\",\n    \"email\": \"consectetur dolor est\",\n    \"role\": \"DEPARTMENT_MANAGER\",\n    \"status\": \"ACTIVE\",\n    \"name\": \"deserunt elit in\"\n  }\n}",
+                        "uid": "21815003-d8f2d5bc-79a3-4a61-ab82-347767f18f13"
+                      }
+                    ],
+                    "uid": "21815003-d7d3adea-b0e9-4642-a2a0-6a28beed4749"
+                  },
+                  {
+                    "name": "post Api Web Auth Logout",
+                    "id": "bca26bc0-b959-4c37-8676-9717f3e58558",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "auth": {
+                        "type": "bearer",
+                        "bearer": [
+                          {
+                            "key": "token",
+                            "value": "{{bearerToken}}",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "method": "POST",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "body": {
+                        "mode": "raw",
+                        "raw": "{}",
+                        "options": {
+                          "raw": {
+                            "language": "json"
+                          }
+                        }
+                      },
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/auth/logout",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "auth",
+                          "logout"
+                        ]
+                      },
+                      "description": "<p>Permission: false</p><p></p>"
+                    },
+                    "response": [
+                      {
+                        "id": "8bba02a5-85e4-48ff-a536-ebad57aa364c",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "POST",
+                          "header": [
+                            {
+                              "description": "Added as a part of security scheme: bearer",
+                              "key": "Authorization",
+                              "value": "Bearer <token>"
+                            }
+                          ],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/auth/logout",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "auth",
+                              "logout"
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"messages\": [\n    {\n      \"message\": \"enim ut aliqua\",\n      \"type\": \"SUCCESS\"\n    },\n    {\n      \"message\": \"adipisicing sed laboris\",\n      \"type\": \"SUCCESS\"\n    }\n  ]\n}",
+                        "uid": "21815003-8bba02a5-85e4-48ff-a536-ebad57aa364c"
+                      }
+                    ],
+                    "uid": "21815003-bca26bc0-b959-4c37-8676-9717f3e58558"
+                  },
+                  {
+                    "name": "post Api Web Auth Refresh Token",
+                    "id": "a9cac7b6-55d7-443d-8bf7-b6389db94e55",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "method": "POST",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "body": {
+                        "mode": "raw",
+                        "raw": "{\n  \"refreshToken\": \"occaecat reprehenderit et dolor sunt\"\n}",
+                        "options": {
+                          "raw": {
+                            "language": "json"
+                          }
+                        }
+                      },
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/auth/refresh-token",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "auth",
+                          "refresh-token"
+                        ]
+                      },
+                      "description": "Endpoint is used for obtaining new access and refresh token, if refresh token is valid or is not expired.<br><p>Permission: false</p><p></p>"
+                    },
+                    "response": [
+                      {
+                        "id": "519634df-1929-43c1-8a44-8b49f7a0f532",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "POST",
+                          "header": [],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"refreshToken\": \"occaecat reprehenderit et dolor sunt\"\n}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/auth/refresh-token",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "auth",
+                              "refresh-token"
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"accessToken\": \"lab\",\n  \"refreshToken\": \"et Lorem\"\n}",
+                        "uid": "21815003-519634df-1929-43c1-8a44-8b49f7a0f532"
+                      }
+                    ],
+                    "uid": "21815003-a9cac7b6-55d7-443d-8bf7-b6389db94e55"
+                  },
+                  {
+                    "name": "post Api Web Auth Resend Confirm",
+                    "id": "c0052cf0-b8a5-49fc-a040-110a6d4918a2",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "auth": {
+                        "type": "bearer",
+                        "bearer": [
+                          {
+                            "key": "token",
+                            "value": "{{bearerToken}}",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "method": "POST",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "body": {
+                        "mode": "raw",
+                        "raw": "{}",
+                        "options": {
+                          "raw": {
+                            "language": "json"
+                          }
+                        }
+                      },
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/auth/resend-confirm",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "auth",
+                          "resend-confirm"
+                        ]
+                      },
+                      "description": "Endpoint is used for resend confirmation email.<br><p>Permission: false</p><p></p>"
+                    },
+                    "response": [
+                      {
+                        "id": "ebdae112-50b1-4463-ba77-7e55f987b6df",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "POST",
+                          "header": [
+                            {
+                              "description": "Added as a part of security scheme: bearer",
+                              "key": "Authorization",
+                              "value": "Bearer <token>"
+                            }
+                          ],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/auth/resend-confirm",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "auth",
+                              "resend-confirm"
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"messages\": [\n    {\n      \"message\": \"enim ut aliqua\",\n      \"type\": \"SUCCESS\"\n    },\n    {\n      \"message\": \"adipisicing sed laboris\",\n      \"type\": \"SUCCESS\"\n    }\n  ]\n}",
+                        "uid": "21815003-ebdae112-50b1-4463-ba77-7e55f987b6df"
+                      }
+                    ],
+                    "uid": "21815003-c0052cf0-b8a5-49fc-a040-110a6d4918a2"
+                  },
+                  {
+                    "name": "post Api Web Auth Reset Password",
+                    "id": "3ded21e9-dd2d-4b02-939c-3b31791fbf80",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "auth": {
+                        "type": "bearer",
+                        "bearer": [
+                          {
+                            "key": "token",
+                            "value": "{{bearerToken}}",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "method": "POST",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "body": {
+                        "mode": "raw",
+                        "raw": "{\n  \"password\": \"RcMS?m~4%,b\"\n}",
+                        "options": {
+                          "raw": {
+                            "language": "json"
+                          }
+                        }
+                      },
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/auth/reset-password",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "auth",
+                          "reset-password"
+                        ]
+                      },
+                      "description": "Endpoint is used for password reset.<br><p>Permission: false</p><p></p>"
+                    },
+                    "response": [
+                      {
+                        "id": "5b87a4fa-518a-4b3e-ae68-dde2b7624115",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "POST",
+                          "header": [
+                            {
+                              "description": "Added as a part of security scheme: bearer",
+                              "key": "Authorization",
+                              "value": "Bearer <token>"
+                            }
+                          ],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"password\": \"RcMS?m~4%,b\"\n}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/auth/reset-password",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "auth",
+                              "reset-password"
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"messages\": [\n    {\n      \"message\": \"enim ut aliqua\",\n      \"type\": \"SUCCESS\"\n    },\n    {\n      \"message\": \"adipisicing sed laboris\",\n      \"type\": \"SUCCESS\"\n    }\n  ]\n}",
+                        "uid": "21815003-5b87a4fa-518a-4b3e-ae68-dde2b7624115"
+                      }
+                    ],
+                    "uid": "21815003-3ded21e9-dd2d-4b02-939c-3b31791fbf80"
+                  },
+                  {
+                    "name": "post Api Web Auth Change Password",
+                    "id": "0b2be10f-8f3f-4865-b069-2ddf08719273",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "auth": {
+                        "type": "bearer",
+                        "bearer": [
+                          {
+                            "key": "token",
+                            "value": "{{bearerToken}}",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "method": "POST",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "body": {
+                        "mode": "raw",
+                        "raw": "{\n  \"oldPassword\": \"?CaU&lT(agA/kE4Y'\",\n  \"newPassword\": \"XF2fw4bX'^}pfYrLS4\"\n}",
+                        "options": {
+                          "raw": {
+                            "language": "json"
+                          }
+                        }
+                      },
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/auth/change-password",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "auth",
+                          "change-password"
+                        ]
+                      },
+                      "description": "Endpoint is used for password change.<br><p>Permission: false</p><p></p>"
+                    },
+                    "response": [
+                      {
+                        "id": "00ff1ec2-4dea-44a0-bd0e-532cc6127d1b",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "POST",
+                          "header": [
+                            {
+                              "description": "Added as a part of security scheme: bearer",
+                              "key": "Authorization",
+                              "value": "Bearer <token>"
+                            }
+                          ],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"oldPassword\": \"?CaU&lT(agA/kE4Y'\",\n  \"newPassword\": \"XF2fw4bX'^}pfYrLS4\"\n}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/auth/change-password",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "auth",
+                              "change-password"
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"messages\": [\n    {\n      \"message\": \"enim ut aliqua\",\n      \"type\": \"SUCCESS\"\n    },\n    {\n      \"message\": \"adipisicing sed laboris\",\n      \"type\": \"SUCCESS\"\n    }\n  ]\n}",
+                        "uid": "21815003-00ff1ec2-4dea-44a0-bd0e-532cc6127d1b"
+                      }
+                    ],
+                    "uid": "21815003-0b2be10f-8f3f-4865-b069-2ddf08719273"
+                  },
+                  {
+                    "name": "post Api Web Auth Activate Account",
+                    "id": "082407cf-45b9-4389-b1f8-b9b72e1921cf",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "auth": {
+                        "type": "bearer",
+                        "bearer": [
+                          {
+                            "key": "token",
+                            "value": "{{bearerToken}}",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "method": "POST",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "body": {
+                        "mode": "raw",
+                        "raw": "{\n  \"name\": \"John Doe\",\n  \"organizationName\": \"GoodRequest s.r.o.\",\n  \"gdprConsent\": true,\n  \"termsAndConditionsConsent\": true\n}",
+                        "options": {
+                          "raw": {
+                            "language": "json"
+                          }
+                        }
+                      },
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/auth/activate-account",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "auth",
+                          "activate-account"
+                        ]
+                      },
+                      "description": "Endpoint is used to complete innovation manager sign up process.<br><p>Permission: false</p><p></p>"
+                    },
+                    "response": [
+                      {
+                        "id": "c9809938-3dbc-4c8f-8464-d4534b4ae591",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "POST",
+                          "header": [
+                            {
+                              "description": "Added as a part of security scheme: bearer",
+                              "key": "Authorization",
+                              "value": "Bearer <token>"
+                            }
+                          ],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"John Doe\",\n  \"organizationName\": \"GoodRequest s.r.o.\",\n  \"gdprConsent\": true,\n  \"termsAndConditionsConsent\": true\n}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/auth/activate-account",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "auth",
+                              "activate-account"
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"accessToken\": \"cillum sunt sit laborum\",\n  \"refreshToken\": \"nulla irure exercitation\",\n  \"user\": {\n    \"id\": \"urn:uuid:3cb6d120-500b-1aaa-202d-a2c8a5c9924a\",\n    \"email\": \"Lorem cillum in dolor\",\n    \"role\": \"DEPARTMENT_MANAGER\",\n    \"status\": \"PENDING_CONFIRM\",\n    \"name\": \"aute cillum ut dolor ut\"\n  },\n  \"organization\": {\n    \"id\": \"consectetur ea in\",\n    \"key\": \"non quis\",\n    \"name\": \"commodo culpa in ut\"\n  },\n  \"messages\": [\n    {\n      \"message\": \"sit cillum\",\n      \"type\": \"SUCCESS\"\n    },\n    {\n      \"message\": \"aliquip anim minim nulla\",\n      \"type\": \"SUCCESS\"\n    }\n  ]\n}",
+                        "uid": "21815003-c9809938-3dbc-4c8f-8464-d4534b4ae591"
+                      }
+                    ],
+                    "uid": "21815003-082407cf-45b9-4389-b1f8-b9b72e1921cf"
+                  },
+                  {
+                    "name": "post Api Web Auth Login",
+                    "id": "e479639d-6b91-468c-97d1-82ca3af01127",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "auth": {
+                        "type": "bearer",
+                        "bearer": [
+                          {
+                            "key": "token",
+                            "value": "{{bearerToken}}",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "method": "POST",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "body": {
+                        "mode": "raw",
+                        "raw": "{\n  \"organization\": \"officia ea\",\n  \"email\": \"h4vvN@gpKuzbryj.far\",\n  \"password\": \"Test123.\",\n  \"recaptchaToken\": \"officia irure\"\n}",
+                        "options": {
+                          "raw": {
+                            "language": "json"
+                          }
+                        }
+                      },
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/auth/login",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "auth",
+                          "login"
+                        ]
+                      },
+                      "description": "Endpoint is used for login.<br><p>Permission: false</p><p>Recaptcha: true</p>"
+                    },
+                    "response": [
+                      {
+                        "id": "f0254ada-de83-479e-a83c-a93f81bb9300",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "POST",
+                          "header": [
+                            {
+                              "description": "Added as a part of security scheme: bearer",
+                              "key": "Authorization",
+                              "value": "Bearer <token>"
+                            }
+                          ],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"organization\": \"officia ea\",\n  \"email\": \"h4vvN@gpKuzbryj.far\",\n  \"password\": \"Test123.\",\n  \"recaptchaToken\": \"officia irure\"\n}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/auth/login",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "auth",
+                              "login"
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"accessToken\": \"culpa ut qui\",\n  \"refreshToken\": \"ad elit veniam aute\",\n  \"user\": {\n    \"id\": \"4ed1515e-3b63-aca1-0fa7-46f78d0d6b7c\",\n    \"email\": \"officia irure sint in\",\n    \"role\": \"EMPLOYEE\",\n    \"status\": \"PENDING_INVITATION\",\n    \"name\": \"reprehenderit cupidatat qui sint\"\n  }\n}",
+                        "uid": "21815003-f0254ada-de83-479e-a83c-a93f81bb9300"
+                      }
+                    ],
+                    "uid": "21815003-e479639d-6b91-468c-97d1-82ca3af01127"
+                  },
+                  {
+                    "name": "post Api Web Auth Reset Password Request",
+                    "id": "25c057f7-e42c-43d5-8408-571c40af9b68",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "method": "POST",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "body": {
+                        "mode": "raw",
+                        "raw": "{\n  \"email\": \"fFm65Qa@pCtZVONVSAd.se\",\n  \"recaptchaToken\": \"cupidatat eu\"\n}",
+                        "options": {
+                          "raw": {
+                            "language": "json"
+                          }
+                        }
+                      },
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/auth/reset-password-request",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "auth",
+                          "reset-password-request"
+                        ]
+                      },
+                      "description": "Endpoint is used for sending forgot password email.<br><p>Permission: false</p><p>Recaptcha: true</p>"
+                    },
+                    "response": [
+                      {
+                        "id": "bc6a4008-5af7-4a6d-8d87-435708a9b81d",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "POST",
+                          "header": [],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"fFm65Qa@pCtZVONVSAd.se\",\n  \"recaptchaToken\": \"cupidatat eu\"\n}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/auth/reset-password-request",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "auth",
+                              "reset-password-request"
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"messages\": [\n    {\n      \"message\": \"enim ut aliqua\",\n      \"type\": \"SUCCESS\"\n    },\n    {\n      \"message\": \"adipisicing sed laboris\",\n      \"type\": \"SUCCESS\"\n    }\n  ]\n}",
+                        "uid": "21815003-bc6a4008-5af7-4a6d-8d87-435708a9b81d"
+                      }
+                    ],
+                    "uid": "21815003-25c057f7-e42c-43d5-8408-571c40af9b68"
+                  },
+                  {
+                    "name": "post Api Web Auth Sign Up",
+                    "id": "85edd4c7-c180-4cc8-b791-0c07760c8405",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "method": "POST",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "body": {
+                        "mode": "raw",
+                        "raw": "{\n  \"email\": \"YSaGwzGbW0@OWfjtHgCmZAyZeGyA.tyh\",\n  \"password\": \"?/12|c+|$hgq v.iT\",\n  \"recaptchaToken\": \"dolore ad ipsum cupidatat\"\n}",
+                        "options": {
+                          "raw": {
+                            "language": "json"
+                          }
+                        }
+                      },
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/auth/sign-up",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "auth",
+                          "sign-up"
+                        ]
+                      },
+                      "description": "Endpoint is used for registration as a new user (Innovation Manager).<br><p>Permission: false</p><p>Recaptcha: true</p>"
+                    },
+                    "response": [
+                      {
+                        "id": "850ecbdf-7e79-461d-b9e0-689a1d814371",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "POST",
+                          "header": [],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"YSaGwzGbW0@OWfjtHgCmZAyZeGyA.tyh\",\n  \"password\": \"?/12|c+|$hgq v.iT\",\n  \"recaptchaToken\": \"dolore ad ipsum cupidatat\"\n}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/auth/sign-up",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "auth",
+                              "sign-up"
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"accessToken\": \"amet commodo cillum Lorem\",\n  \"refreshToken\": \"incididunt in in in\",\n  \"user\": {\n    \"id\": \"urn:uuid:3080b2de-c568-492d-b559-4c6cc14b8782\",\n    \"email\": \"ex id et\",\n    \"status\": \"ACTIVE\"\n  },\n  \"messages\": [\n    {\n      \"message\": \"occaecat sed proident consequat\",\n      \"type\": \"SUCCESS\"\n    },\n    {\n      \"message\": \"qui fugiat nulla aliqua do\",\n      \"type\": \"SUCCESS\"\n    }\n  ]\n}",
+                        "uid": "21815003-850ecbdf-7e79-461d-b9e0-689a1d814371"
+                      }
+                    ],
+                    "uid": "21815003-85edd4c7-c180-4cc8-b791-0c07760c8405"
+                  }
+                ],
+                "id": "a658634d-91ee-44ae-a391-0c03245ab2da",
+                "uid": "21815003-a658634d-91ee-44ae-a391-0c03245ab2da"
+              },
+              {
+                "name": "departments",
+                "item": [
+                  {
+                    "name": "{departmentID}",
+                    "item": [
+                      {
+                        "name": "patch Api Web Departments Department Id",
+                        "id": "056425bb-51de-42ad-8fb9-dd60e3559ce3",
+                        "protocolProfileBehavior": {
+                          "disableBodyPruning": true
+                        },
+                        "request": {
+                          "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                              {
+                                "key": "token",
+                                "value": "{{bearerToken}}",
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          "method": "PATCH",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "key": "Accept",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"dolore consequat quis pariatur\",\n  \"purpose\": \"id\",\n  \"focusAreas\": \"magna laborum\",\n  \"leaderID\": \"f21fd0fd-2639-34db-ad4e-c1a1ce74be88\"\n}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/departments/:departmentID",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "departments",
+                              ":departmentID"
+                            ],
+                            "variable": [
+                              {
+                                "id": "2e74921d-eddc-4174-976d-64e93f60e351",
+                                "key": "departmentID",
+                                "value": "62e9e3d4-1d21-f829-ca88-bd40feeffebe",
+                                "description": "(Required) Department ID"
+                              }
+                            ]
+                          },
+                          "description": "Endpoint to update department<br><p>Permission: false</p><p></p>"
+                        },
+                        "response": [
+                          {
+                            "id": "da0c413b-8a17-4179-99b6-356ee1625531",
+                            "name": "Success response",
+                            "originalRequest": {
+                              "method": "PATCH",
+                              "header": [
+                                {
+                                  "description": "Added as a part of security scheme: bearer",
+                                  "key": "Authorization",
+                                  "value": "Bearer <token>"
+                                }
+                              ],
+                              "body": {
+                                "mode": "raw",
+                                "raw": "{\n  \"name\": \"dolore consequat quis pariatur\",\n  \"purpose\": \"id\",\n  \"focusAreas\": \"magna laborum\",\n  \"leaderID\": \"f21fd0fd-2639-34db-ad4e-c1a1ce74be88\"\n}",
+                                "options": {
+                                  "raw": {
+                                    "language": "json"
+                                  }
+                                }
+                              },
+                              "url": {
+                                "raw": "{{baseUrl}}/api/web/departments/:departmentID",
+                                "host": [
+                                  "{{baseUrl}}"
+                                ],
+                                "path": [
+                                  "api",
+                                  "web",
+                                  "departments",
+                                  ":departmentID"
+                                ],
+                                "variable": [
+                                  {
+                                    "key": "departmentID",
+                                    "value": "62e9e3d4-1d21-f829-ca88-bd40feeffebe",
+                                    "description": "(Required) Department ID"
+                                  }
+                                ]
+                              }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n  \"messages\": [\n    {\n      \"message\": \"enim ut aliqua\",\n      \"type\": \"SUCCESS\"\n    },\n    {\n      \"message\": \"adipisicing sed laboris\",\n      \"type\": \"SUCCESS\"\n    }\n  ]\n}",
+                            "uid": "21815003-da0c413b-8a17-4179-99b6-356ee1625531"
+                          }
+                        ],
+                        "uid": "21815003-056425bb-51de-42ad-8fb9-dd60e3559ce3"
+                      },
+                      {
+                        "name": "delete Api Web Departments Department Id",
+                        "id": "7c73d262-c7b7-4d70-a7d7-ce57dcbe63a1",
+                        "protocolProfileBehavior": {
+                          "disableBodyPruning": true
+                        },
+                        "request": {
+                          "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                              {
+                                "key": "token",
+                                "value": "{{bearerToken}}",
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          "method": "DELETE",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "key": "Accept",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/departments/:departmentID",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "departments",
+                              ":departmentID"
+                            ],
+                            "variable": [
+                              {
+                                "id": "87e8bb9a-b42e-4bb1-bbf6-49b757f80c82",
+                                "key": "departmentID",
+                                "value": "69734c17-c90c-7472-e56f-8ffaf5a1dbfb",
+                                "description": "(Required) Department ID to delete"
+                              }
+                            ]
+                          },
+                          "description": "Endpoint to delete a department<br><p>Permission: false</p><p></p>"
+                        },
+                        "response": [
+                          {
+                            "id": "ee85eb7b-5030-416a-b86a-cf7cfa6b7e5f",
+                            "name": "Success response",
+                            "originalRequest": {
+                              "method": "DELETE",
+                              "header": [
+                                {
+                                  "description": "Added as a part of security scheme: bearer",
+                                  "key": "Authorization",
+                                  "value": "Bearer <token>"
+                                }
+                              ],
+                              "body": {
+                                "mode": "raw",
+                                "raw": "{}",
+                                "options": {
+                                  "raw": {
+                                    "language": "json"
+                                  }
+                                }
+                              },
+                              "url": {
+                                "raw": "{{baseUrl}}/api/web/departments/:departmentID",
+                                "host": [
+                                  "{{baseUrl}}"
+                                ],
+                                "path": [
+                                  "api",
+                                  "web",
+                                  "departments",
+                                  ":departmentID"
+                                ],
+                                "variable": [
+                                  {
+                                    "key": "departmentID",
+                                    "value": "69734c17-c90c-7472-e56f-8ffaf5a1dbfb",
+                                    "description": "(Required) Department ID to delete"
+                                  }
+                                ]
+                              }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n  \"messages\": [\n    {\n      \"message\": \"enim ut aliqua\",\n      \"type\": \"SUCCESS\"\n    },\n    {\n      \"message\": \"adipisicing sed laboris\",\n      \"type\": \"SUCCESS\"\n    }\n  ]\n}",
+                            "uid": "21815003-ee85eb7b-5030-416a-b86a-cf7cfa6b7e5f"
+                          }
+                        ],
+                        "uid": "21815003-7c73d262-c7b7-4d70-a7d7-ce57dcbe63a1"
+                      }
+                    ],
+                    "id": "c2fe455d-77d7-453a-9d6d-a66e731f50a3",
+                    "uid": "21815003-c2fe455d-77d7-453a-9d6d-a66e731f50a3"
+                  },
+                  {
+                    "name": "get Api Web Departments",
+                    "id": "656becda-9da0-48f5-8149-4d8b2035bdf1",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "auth": {
+                        "type": "bearer",
+                        "bearer": [
+                          {
+                            "key": "token",
+                            "value": "{{bearerToken}}",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "method": "GET",
+                      "header": [
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/departments/",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "departments",
+                          ""
+                        ]
+                      },
+                      "description": "Endpoint to get all departments<br><p>Permission: false</p><p></p>"
+                    },
+                    "response": [
+                      {
+                        "id": "bc311193-8403-408a-b2a5-389808f1bc82",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "GET",
+                          "header": [
+                            {
+                              "description": "Added as a part of security scheme: bearer",
+                              "key": "Authorization",
+                              "value": "Bearer <token>"
+                            }
+                          ],
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/departments/",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "departments",
+                              ""
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"departments\": [\n    {\n      \"id\": \"11aa1ecc-6878-42a8-ee40-7590cf0915ab\",\n      \"name\": \"ex incididunt minim aute consectetur\",\n      \"purpose\": \"fugiat dolor in minim\",\n      \"leader\": {\n        \"id\": \"urn:uuid:88246dbf-bda3-ffee-2077-446545c77405\",\n        \"name\": \"U\"\n      },\n      \"ideas\": {\n        \"all\": 27849990.152593,\n        \"unevaluated\": 13839176.591325536,\n        \"assigned\": 5703204.838825375\n      },\n      \"activeMissions\": 22371261.056389585,\n      \"focusAreas\": \"adipisicing minim\"\n    },\n    {\n      \"id\": \"urn:uuid:594471d3-1147-9e02-07f3-86d795f53ea0\",\n      \"name\": \"officia re\",\n      \"purpose\": \"dolore e\",\n      \"leader\": {\n        \"id\": \"4e3419fe-c377-21a4-f2cf-7b494620d630\",\n        \"name\": \"culpa i\"\n      },\n      \"ideas\": {\n        \"all\": 3126633.918591231,\n        \"unevaluated\": -21299350.00743836,\n        \"assigned\": -85378698.48836364\n      },\n      \"activeMissions\": 84539678.01036873,\n      \"focusAreas\": \"ea reprehenderit\"\n    }\n  ]\n}",
+                        "uid": "21815003-bc311193-8403-408a-b2a5-389808f1bc82"
+                      }
+                    ],
+                    "uid": "21815003-656becda-9da0-48f5-8149-4d8b2035bdf1"
+                  },
+                  {
+                    "name": "post Api Web Departments",
+                    "id": "736e9799-1ded-43a6-81c6-c867636cd40f",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "auth": {
+                        "type": "bearer",
+                        "bearer": [
+                          {
+                            "key": "token",
+                            "value": "{{bearerToken}}",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "method": "POST",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "body": {
+                        "mode": "raw",
+                        "raw": "{\n  \"name\": \"nostrud nisi voluptate\",\n  \"purpose\": \"minim cupidatat commodo est ut\",\n  \"leaderID\": \"fa75c0c6-ada9-f59e-5f81-ee4e98b61501\",\n  \"focusAreas\": \"mollit officia\"\n}",
+                        "options": {
+                          "raw": {
+                            "language": "json"
+                          }
+                        }
+                      },
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/departments/",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "departments",
+                          ""
+                        ]
+                      },
+                      "description": "Endpoint to create a new department<br><p>Permission: false</p><p></p>"
+                    },
+                    "response": [
+                      {
+                        "id": "39faf1b9-41b9-435d-a4eb-6d1f29afcd82",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "POST",
+                          "header": [
+                            {
+                              "description": "Added as a part of security scheme: bearer",
+                              "key": "Authorization",
+                              "value": "Bearer <token>"
+                            }
+                          ],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"nostrud nisi voluptate\",\n  \"purpose\": \"minim cupidatat commodo est ut\",\n  \"leaderID\": \"fa75c0c6-ada9-f59e-5f81-ee4e98b61501\",\n  \"focusAreas\": \"mollit officia\"\n}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/departments/",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "departments",
+                              ""
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"messages\": [\n    {\n      \"message\": \"enim ut aliqua\",\n      \"type\": \"SUCCESS\"\n    },\n    {\n      \"message\": \"adipisicing sed laboris\",\n      \"type\": \"SUCCESS\"\n    }\n  ]\n}",
+                        "uid": "21815003-39faf1b9-41b9-435d-a4eb-6d1f29afcd82"
+                      }
+                    ],
+                    "uid": "21815003-736e9799-1ded-43a6-81c6-c867636cd40f"
+                  }
+                ],
+                "id": "94dcfe0d-f37a-4a88-97bd-7bd9dcb326d5",
+                "uid": "21815003-94dcfe0d-f37a-4a88-97bd-7bd9dcb326d5"
+              },
+              {
+                "name": "organization",
+                "item": [
+                  {
+                    "name": "get Api Web Organization",
+                    "id": "856ef08d-41bf-4b6a-a33e-68794290b094",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "auth": {
+                        "type": "bearer",
+                        "bearer": [
+                          {
+                            "key": "token",
+                            "value": "{{bearerToken}}",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "method": "GET",
+                      "header": [
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/organization/",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "organization",
+                          ""
+                        ]
+                      },
+                      "description": "Endpoint is used for getting information of organization.<br><p>Permission: false</p><p></p>"
+                    },
+                    "response": [
+                      {
+                        "id": "96436d3c-54d7-4d8d-b19d-27fd8d86adc3",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "GET",
+                          "header": [
+                            {
+                              "description": "Added as a part of security scheme: bearer",
+                              "key": "Authorization",
+                              "value": "Bearer <token>"
+                            }
+                          ],
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/organization/",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "organization",
+                              ""
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"industry\": \"commodo Lorem irure velit\",\n  \"vision\": \"ea\",\n  \"audience\": \"nostrud non laboris\",\n  \"services\": \"ut consectetur id\",\n  \"size\": \"1000+\",\n  \"challenges\": \"ut in in incididunt\"\n}",
+                        "uid": "21815003-96436d3c-54d7-4d8d-b19d-27fd8d86adc3"
+                      }
+                    ],
+                    "uid": "21815003-856ef08d-41bf-4b6a-a33e-68794290b094"
+                  },
+                  {
+                    "name": "put Api Web Organization",
+                    "id": "e06f96ce-27dc-4670-a40b-125d90ce1872",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "auth": {
+                        "type": "bearer",
+                        "bearer": [
+                          {
+                            "key": "token",
+                            "value": "{{bearerToken}}",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "method": "PUT",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "body": {
+                        "mode": "raw",
+                        "raw": "{\n  \"industry\": \"commodo Lorem irure velit\",\n  \"vision\": \"ea\",\n  \"audience\": \"nostrud non laboris\",\n  \"services\": \"ut consectetur id\",\n  \"size\": \"1000+\",\n  \"challenges\": \"ut in in incididunt\"\n}",
+                        "options": {
+                          "raw": {
+                            "language": "json"
+                          }
+                        }
+                      },
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/organization/",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "organization",
+                          ""
+                        ]
+                      },
+                      "description": "Endpoint is used for updating information of organization during onboarding.<br><p>Permission: false</p><p></p>"
+                    },
+                    "response": [
+                      {
+                        "id": "78234efa-d3cd-4738-a90b-fcc25e60dcb9",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "PUT",
+                          "header": [
+                            {
+                              "description": "Added as a part of security scheme: bearer",
+                              "key": "Authorization",
+                              "value": "Bearer <token>"
+                            }
+                          ],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"industry\": \"commodo Lorem irure velit\",\n  \"vision\": \"ea\",\n  \"audience\": \"nostrud non laboris\",\n  \"services\": \"ut consectetur id\",\n  \"size\": \"1000+\",\n  \"challenges\": \"ut in in incididunt\"\n}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/organization/",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "organization",
+                              ""
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"onboarding\": {\n    \"step\": \"COMPLETED\",\n    \"completed\": true\n  },\n  \"messages\": [\n    {\n      \"message\": \"enim ullamco\",\n      \"type\": \"SUCCESS\"\n    },\n    {\n      \"message\": \"sed occaecat enim id\",\n      \"type\": \"SUCCESS\"\n    }\n  ]\n}",
+                        "uid": "21815003-78234efa-d3cd-4738-a90b-fcc25e60dcb9"
+                      }
+                    ],
+                    "uid": "21815003-e06f96ce-27dc-4670-a40b-125d90ce1872"
+                  }
+                ],
+                "id": "ab3ca325-b2c9-4ba6-bae2-f8301b131bd4",
+                "uid": "21815003-ab3ca325-b2c9-4ba6-bae2-f8301b131bd4"
+              },
+              {
+                "name": "users",
+                "item": [
+                  {
+                    "name": "get Api Web Users",
+                    "id": "31502255-9fcd-43ee-a215-f670625a4741",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "auth": {
+                        "type": "bearer",
+                        "bearer": [
+                          {
+                            "key": "token",
+                            "value": "{{bearerToken}}",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "method": "GET",
+                      "header": [
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/users/",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "users",
+                          ""
+                        ],
+                        "query": [
+                          {
+                            "key": "roles",
+                            "value": "EMPLOYEE",
+                            "disabled": true
+                          },
+                          {
+                            "key": "roles",
+                            "value": "EMPLOYEE",
+                            "disabled": true
+                          },
+                          {
+                            "key": "states",
+                            "value": "ACTIVE",
+                            "disabled": true
+                          },
+                          {
+                            "key": "states",
+                            "value": "NOT_INVITED",
+                            "disabled": true
+                          },
+                          {
+                            "key": "search",
+                            "value": "fugiat et",
+                            "disabled": true
+                          },
+                          {
+                            "key": "limit",
+                            "value": "25",
+                            "disabled": true
+                          },
+                          {
+                            "key": "page",
+                            "value": "1",
+                            "disabled": true
+                          }
+                        ]
+                      },
+                      "description": "Endpoint to get a list of users with filtering and pagination<br><p>Permission: false</p><p></p>"
+                    },
+                    "response": [
+                      {
+                        "id": "d99f97b4-a6a0-4352-8a3a-b2c830f0578b",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "GET",
+                          "header": [
+                            {
+                              "description": "Added as a part of security scheme: bearer",
+                              "key": "Authorization",
+                              "value": "Bearer <token>"
+                            }
+                          ],
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/users/?roles=INNOVATION_MANAGER&roles=INNOVATION_MANAGER&states=ACTIVE&states=ACTIVE&search=fugiat et&limit=25&page=1",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "users",
+                              ""
+                            ],
+                            "query": [
+                              {
+                                "key": "roles",
+                                "value": "INNOVATION_MANAGER"
+                              },
+                              {
+                                "key": "roles",
+                                "value": "INNOVATION_MANAGER"
+                              },
+                              {
+                                "key": "states",
+                                "value": "ACTIVE"
+                              },
+                              {
+                                "key": "states",
+                                "value": "ACTIVE"
+                              },
+                              {
+                                "key": "search",
+                                "value": "fugiat et"
+                              },
+                              {
+                                "key": "limit",
+                                "value": "25"
+                              },
+                              {
+                                "key": "page",
+                                "value": "1"
+                              }
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"importMethod\": \"GOOGLE\",\n  \"uninvitedCount\": 7697093,\n  \"users\": [\n    {\n      \"id\": \"f3375104-6080-6eaa-47c6-c9d220494b70\",\n      \"name\": \"ipsum ex ut\",\n      \"email\": \"x-sbXVjn@fEMxwvuNWPoW.yvqm\",\n      \"position\": \"sit quis esse Excepteur in\",\n      \"state\": \"ACTIVE\",\n      \"role\": \"DEPARTMENT_MANAGER\"\n    },\n    {\n      \"id\": \"urn:uuid:3ac9463b-b749-01dd-04ec-4b7af9b5ffa0\",\n      \"name\": \"labore sit consectetur\",\n      \"email\": \"9S6sH@ahadcwwTNguLEKvdOGMfRUSeXRoriBT.yshj\",\n      \"position\": \"commodo ut exer\",\n      \"state\": \"PENDING_INVITATION\",\n      \"role\": \"INNOVATION_MANAGER\"\n    }\n  ],\n  \"pagination\": {\n    \"limit\": 1997394506,\n    \"page\": 1415577104,\n    \"totalPages\": 1752134931,\n    \"totalCount\": 2002391748\n  }\n}",
+                        "uid": "21815003-d99f97b4-a6a0-4352-8a3a-b2c830f0578b"
+                      }
+                    ],
+                    "uid": "21815003-31502255-9fcd-43ee-a215-f670625a4741"
+                  },
+                  {
+                    "name": "put Api Web Users Csv Import",
+                    "id": "a684c1e5-d8e5-4a5e-9494-180854c86c63",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "auth": {
+                        "type": "bearer",
+                        "bearer": [
+                          {
+                            "key": "token",
+                            "value": "{{bearerToken}}",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "method": "PUT",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "body": {
+                        "mode": "raw",
+                        "raw": "{\n  \"file\": \"email,name,position\\nuser1@example.com,John Doe,Developer\\nuser2@example.com,Jane Doe,HR\"\n}",
+                        "options": {
+                          "raw": {
+                            "language": "json"
+                          }
+                        }
+                      },
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/users/csv-import",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "users",
+                          "csv-import"
+                        ]
+                      },
+                      "description": "Endpoint is used for importing users via CSV file.<br><p>Permission: false</p><p></p>"
+                    },
+                    "response": [
+                      {
+                        "id": "e1782411-60b1-4ae5-a91f-088c67a0ee0c",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "PUT",
+                          "header": [
+                            {
+                              "description": "Added as a part of security scheme: bearer",
+                              "key": "Authorization",
+                              "value": "Bearer <token>"
+                            }
+                          ],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"file\": \"email,name,position\\nuser1@example.com,John Doe,Developer\\nuser2@example.com,Jane Doe,HR\"\n}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/users/csv-import",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "users",
+                              "csv-import"
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"importedCount\": 80668523,\n  \"existingCount\": -63615422,\n  \"messages\": [\n    {\n      \"message\": \"id ullamco in\",\n      \"type\": \"GOOGLE_ERROR\"\n    },\n    {\n      \"message\": \"\",\n      \"type\": \"ERROR\"\n    }\n  ]\n}",
+                        "uid": "21815003-e1782411-60b1-4ae5-a91f-088c67a0ee0c"
+                      }
+                    ],
+                    "uid": "21815003-a684c1e5-d8e5-4a5e-9494-180854c86c63"
+                  },
+                  {
+                    "name": "post Api Web Users Invite",
+                    "id": "4b3ea03e-657f-4021-bb3d-8d1a872778e6",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "auth": {
+                        "type": "bearer",
+                        "bearer": [
+                          {
+                            "key": "token",
+                            "value": "{{bearerToken}}",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "method": "POST",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "body": {
+                        "mode": "raw",
+                        "raw": "{\n  \"userIDs\": [\n    \"4ad0a354-2c8e-8c6c-e0a7-88e74971fc16\",\n    \"urn:uuid:a7fafb0a-7e41-4390-d9f3-7a7ccd944c2c\"\n  ],\n  \"filter\": {\n    \"roles\": [\n      \"INNOVATION_MANAGER\",\n      \"EMPLOYEE\"\n    ],\n    \"states\": [\n      \"PENDING_INVITATION\",\n      \"ACTIVE\"\n    ]\n  }\n}",
+                        "options": {
+                          "raw": {
+                            "language": "json"
+                          }
+                        }
+                      },
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/users/invite",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "users",
+                          "invite"
+                        ]
+                      },
+                      "description": "Endpoint is used for sending invitation email for new or existing users.<br><p>Permission: false</p><p></p>"
+                    },
+                    "response": [
+                      {
+                        "id": "152dd930-8ec6-46a4-9fb7-f542d9d94dd1",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "POST",
+                          "header": [
+                            {
+                              "description": "Added as a part of security scheme: bearer",
+                              "key": "Authorization",
+                              "value": "Bearer <token>"
+                            }
+                          ],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"userIDs\": [\n    \"ab32fb8c-face-c1d2-70e6-05f67ddfea54\",\n    \"urn:uuid:00a90564-4165-7351-078e-f5fe90772606\"\n  ],\n  \"filter\": {\n    \"roles\": [\n      \"INNOVATION_MANAGER\",\n      \"INNOVATION_MANAGER\"\n    ],\n    \"states\": [\n      \"DISABLED\",\n      \"NOT_INVITED\"\n    ]\n  }\n}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/users/invite",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "users",
+                              "invite"
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"messages\": [\n    {\n      \"message\": \"enim ut aliqua\",\n      \"type\": \"SUCCESS\"\n    },\n    {\n      \"message\": \"adipisicing sed laboris\",\n      \"type\": \"SUCCESS\"\n    }\n  ]\n}",
+                        "uid": "21815003-152dd930-8ec6-46a4-9fb7-f542d9d94dd1"
+                      }
+                    ],
+                    "uid": "21815003-4b3ea03e-657f-4021-bb3d-8d1a872778e6"
+                  },
+                  {
+                    "name": "post Api Web Users Provider Import",
+                    "id": "34ae05aa-8284-4547-8726-ef389712d966",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "auth": {
+                        "type": "bearer",
+                        "bearer": [
+                          {
+                            "key": "token",
+                            "value": "{{bearerToken}}",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "method": "POST",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "body": {
+                        "mode": "raw",
+                        "raw": "{}",
+                        "options": {
+                          "raw": {
+                            "language": "json"
+                          }
+                        }
+                      },
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/users/:provider/import",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "users",
+                          ":provider",
+                          "import"
+                        ],
+                        "variable": [
+                          {
+                            "id": "5d502c41-60e7-4c08-bee8-5ebe828183e1",
+                            "key": "provider",
+                            "value": "MICROSOFT",
+                            "description": "(Required) "
+                          }
+                        ]
+                      },
+                      "description": "Endpoint is used for importing users from social providers Google or Microsoft.<br><p>Permission: false</p><p></p>"
+                    },
+                    "response": [
+                      {
+                        "id": "82784c38-9bd7-4fa7-80f7-0f88d7b8e9e6",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "POST",
+                          "header": [
+                            {
+                              "description": "Added as a part of security scheme: bearer",
+                              "key": "Authorization",
+                              "value": "Bearer <token>"
+                            }
+                          ],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/users/:provider/import",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "users",
+                              ":provider",
+                              "import"
+                            ],
+                            "variable": [
+                              {
+                                "key": "provider",
+                                "value": "MICROSOFT",
+                                "description": "(Required) "
+                              }
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"importedCount\": 80668523,\n  \"existingCount\": -63615422,\n  \"messages\": [\n    {\n      \"message\": \"id ullamco in\",\n      \"type\": \"GOOGLE_ERROR\"\n    },\n    {\n      \"message\": \"\",\n      \"type\": \"ERROR\"\n    }\n  ]\n}",
+                        "uid": "21815003-82784c38-9bd7-4fa7-80f7-0f88d7b8e9e6"
+                      }
+                    ],
+                    "uid": "21815003-34ae05aa-8284-4547-8726-ef389712d966"
+                  },
+                  {
+                    "name": "post Api Web Users User Id Deactivate",
+                    "id": "9673e007-dd9e-4b68-8f92-beb1f3b68bca",
+                    "protocolProfileBehavior": {
+                      "disableBodyPruning": true
+                    },
+                    "request": {
+                      "auth": {
+                        "type": "bearer",
+                        "bearer": [
+                          {
+                            "key": "token",
+                            "value": "{{bearerToken}}",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "method": "POST",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "key": "Accept",
+                          "value": "application/json"
+                        }
+                      ],
+                      "body": {
+                        "mode": "raw",
+                        "raw": "{}",
+                        "options": {
+                          "raw": {
+                            "language": "json"
+                          }
+                        }
+                      },
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/users/:userID/deactivate",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "users",
+                          ":userID",
+                          "deactivate"
+                        ],
+                        "variable": [
+                          {
+                            "id": "3692448e-33ca-4672-b1ee-19983746c883",
+                            "key": "userID",
+                            "value": "urn:uuid:03a08bc2-14c8-5507-7504-d1f6432663e2",
+                            "description": "(Required) "
+                          }
+                        ]
+                      },
+                      "description": "Endpoint is used for deactivating user.<br><p>Permission: false</p><p></p>"
+                    },
+                    "response": [
+                      {
+                        "id": "39cafe00-8b31-4ea7-a32b-72e2a8527f48",
+                        "name": "Success response",
+                        "originalRequest": {
+                          "method": "POST",
+                          "header": [
+                            {
+                              "description": "Added as a part of security scheme: bearer",
+                              "key": "Authorization",
+                              "value": "Bearer <token>"
+                            }
+                          ],
+                          "body": {
+                            "mode": "raw",
+                            "raw": "{}",
+                            "options": {
+                              "raw": {
+                                "language": "json"
+                              }
+                            }
+                          },
+                          "url": {
+                            "raw": "{{baseUrl}}/api/web/users/:userID/deactivate",
+                            "host": [
+                              "{{baseUrl}}"
+                            ],
+                            "path": [
+                              "api",
+                              "web",
+                              "users",
+                              ":userID",
+                              "deactivate"
+                            ],
+                            "variable": [
+                              {
+                                "key": "userID",
+                                "value": "urn:uuid:03a08bc2-14c8-5507-7504-d1f6432663e2",
+                                "description": "(Required) "
+                              }
+                            ]
+                          }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "json",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": "{\n  \"messages\": [\n    {\n      \"message\": \"enim ut aliqua\",\n      \"type\": \"SUCCESS\"\n    },\n    {\n      \"message\": \"adipisicing sed laboris\",\n      \"type\": \"SUCCESS\"\n    }\n  ]\n}",
+                        "uid": "21815003-39cafe00-8b31-4ea7-a32b-72e2a8527f48"
+                      }
+                    ],
+                    "uid": "21815003-9673e007-dd9e-4b68-8f92-beb1f3b68bca"
+                  }
+                ],
+                "id": "04eb8789-3e88-4104-9c9b-8da4aa2f8032",
+                "uid": "21815003-04eb8789-3e88-4104-9c9b-8da4aa2f8032"
+              },
+              {
+                "name": "get Api Web Config",
+                "id": "1319cadf-6027-4db0-a3f7-92566259c3da",
+                "protocolProfileBehavior": {
+                  "disableBodyPruning": true
+                },
+                "request": {
+                  "method": "GET",
+                  "header": [
+                    {
+                      "key": "Accept",
+                      "value": "application/json"
+                    }
+                  ],
+                  "url": {
+                    "raw": "{{baseUrl}}/api/web/config/",
+                    "host": [
+                      "{{baseUrl}}"
+                    ],
+                    "path": [
+                      "api",
+                      "web",
+                      "config",
+                      ""
+                    ]
+                  },
+                  "description": "Endpoint is used for getting public config.<br><p>Permission: false</p><p></p>"
+                },
+                "response": [
+                  {
+                    "id": "4f5c1907-9af3-4039-827e-edc2ff2689fd",
+                    "name": "Success response",
+                    "originalRequest": {
+                      "method": "GET",
+                      "header": [],
+                      "url": {
+                        "raw": "{{baseUrl}}/api/web/config/",
+                        "host": [
+                          "{{baseUrl}}"
+                        ],
+                        "path": [
+                          "api",
+                          "web",
+                          "config",
+                          ""
+                        ]
+                      }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n  \"password\": {\n    \"regex\": \"occaecat eiusmod ut\",\n    \"validationMessage\": \"laboris officia consequat\"\n  },\n  \"organization\": {\n    \"regex\": \"culpa\",\n    \"validationMessage\": \"ut\"\n  }\n}",
+                    "uid": "21815003-4f5c1907-9af3-4039-827e-edc2ff2689fd"
+                  }
+                ],
+                "uid": "21815003-1319cadf-6027-4db0-a3f7-92566259c3da"
+              }
+            ],
+            "id": "5b457c29-fcd4-4056-9e9b-7a2c7e2cdb7c",
+            "uid": "21815003-5b457c29-fcd4-4056-9e9b-7a2c7e2cdb7c"
+          }
+        ],
+        "id": "ead3323a-270e-4089-91d4-a7104e158915",
+        "uid": "21815003-ead3323a-270e-4089-91d4-a7104e158915"
+      }
+    ]
+  }
+}

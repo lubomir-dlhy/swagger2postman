@@ -1,4 +1,3 @@
-
 # Created by https://www.toptal.com/developers/gitignore/api/node
 # Edit at https://www.toptal.com/developers/gitignore?templates=node
 
@@ -116,3 +115,6 @@ dist
 
 # End of https://www.toptal.com/developers/gitignore/api/node
 config/default.json
+
+# TypeScript output
+dist/
