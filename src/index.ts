@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import dotenv from "dotenv";
 import { Command } from "commander";
-import path from "path";
 import fs from "fs";
 import * as collection from "./lib/collection";
 import * as workspace from "./lib/workspace";
@@ -27,22 +26,44 @@ const converter = require("openapi-to-postmanv2");
 
 // Setup command-line interface
 const program = new Command();
-program
-  .version("1.0.0")
-  .option("-s --service <service>", "which service to convert")
-  .option("-r --replace [replaces]", "comma split api name which will replace not merge")
-  .parse(process.argv);
+program.version("1.0.0").option("-s --service <service>", "which service to convert").parse(process.argv);
 
 const options = program.opts();
 
 console.log(`Service: ${options.service}`);
 
-if (!options.service || !config.get(options.service)) {
+if (!options.service || !config.has(options.service)) {
   console.error("Service configuration not found");
   process.exit(1);
 }
 
 const serviceConfig = config.get(options.service) as IServiceConfig;
+// Validate service configuration
+if (!serviceConfig.collectionName) {
+  console.error("Service configuration must include collectionName");
+  process.exit(1);
+}
+if (!serviceConfig.url && !serviceConfig.filePath) {
+  console.error("Service configuration must include either url or filePath");
+  process.exit(1);
+}
+if (serviceConfig.url && serviceConfig.filePath) {
+  console.error("Service configuration must include either url or filePath, not both");
+  process.exit(1);
+}
+if (serviceConfig.url && !serviceConfig.url.startsWith("http")) {
+  console.error("Service configuration url must start with http or https");
+  process.exit(1);
+}
+if (serviceConfig.filePath && !fs.existsSync(serviceConfig.filePath)) {
+  console.error(`Service configuration filePath does not exist: ${serviceConfig.filePath}`);
+  process.exit(1);
+}
+if (serviceConfig.workspaceName && typeof serviceConfig.workspaceName !== "string") {
+  console.error("Service configuration workspaceName must be a string");
+  process.exit(1);
+}
+
 const collectionName = serviceConfig.collectionName;
 
 // Run update
@@ -136,8 +157,6 @@ async function update(): Promise<void> {
     // Convert swagger to Postman collection
     const convertedJson = await convertSwaggerToPostman(swaggerJson);
 
-    fs.writeFileSync("convertedCollection.json", JSON.stringify(convertedJson, null, 2));
-
     // Get or create workspace if workspaceName is provided
     let workspaceId = "";
     if (serviceConfig.workspaceName) {
@@ -183,7 +202,6 @@ async function update(): Promise<void> {
     } else {
       // Get existing collection and merge
       const savedCollection = await collection.getCollectionDetail(id);
-      fs.writeFileSync("savedCollection.json", JSON.stringify(savedCollection, null, 2));
 
       // Ensure savedCollection has proper structure
       if (!Array.isArray(savedCollection.collection.item)) {

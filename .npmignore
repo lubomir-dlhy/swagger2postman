@@ -1,0 +1,19 @@
+# Source code (since we're publishing the compiled output)
+src/
+tsconfig.json
+.github/
+.vscode/
+.env
+.env.sample
+convertedCollection.json
+config/default-example.json
+
+# Development files
+*.log
+coverage/
+.nyc_output/
+*.tsbuildinfo
+
+# Git files
+.git/
+.gitignore

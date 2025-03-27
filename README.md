@@ -1,37 +1,64 @@
-# UPDATE POSTMAN COLLECTION FROM SWAGGER
+# swagger2postman
 
+A tool to convert Swagger/OpenAPI specifications to Postman collections.
+
+## Installation
+
+```bash
+npm install -g swagger2postman
+```
+
+## Usage
+
+```bash
+swagger2postman [options]
+```
+
+For more information on available options, run:
+
+```bash
+swagger2postman --help
+```
+
+## License
+
+MIT
+
+# UPDATE POSTMAN COLLECTION FROM SWAGGER
 
 This tools can update postman collection from swagger json, to avoid create every time.
 
 > Note: The tools will merge old config with new, but for request body, it will keep the exist one, not merge.
 
 ### Use
+
 1. Clone this repository
 
 2. Install packages
 
-    Make sure you have install nodejs. Then in project root folder, run `npm install` to install libs.
+   Make sure you have install nodejs. Then in project root folder, run `npm install` to install libs.
 
 3. Get your postman api key  
    Just open [this link](https://web.postman.co/settings/me/api-keys) in your broswer, and generate your api key.
 
 4. Set api key as environment.  
-    Copy `.env.sample` to `.env` file, then set the api key you get in the previous step.
-    
+   Copy `.env.sample` to `.env` file, then set the api key you get in the previous step.
 5. Rename `config/default-example.json` file to `config/default.json` and edit like bellow
+
    ```json
-   {       
-        "test":{
-            "collection_name":"test import",
-            "url":"http://127.0.0.1:8085/v2/api-docs"
-        }
-    }
+   {
+     "test": {
+       "collection_name": "test import",
+       "url": "http://127.0.0.1:8085/v2/api-docs"
+     }
+   }
    ```
-    The key is command line value name.`collection_name` is the postman collection name you want to update. `url` is your swagger url.
+
+   The key is command line value name.`collection_name` is the postman collection name you want to update. `url` is your swagger url.
 
 6. Run update  
-    In project root folder, open command line and run `node index.js -s test`  
-    you can also install as gloabl cli. run `sudo npm link` in root folder, then use `apih -s test` everywhere!
+   In project root folder, open command line and run `node index.js -s test`  
+   you can also install as gloabl cli. run `sudo npm link` in root folder, then use `apih -s test` everywhere!
 
 ### TODO
 
@@ -44,4 +71,3 @@ This tools can update postman collection from swagger json, to avoid create ever
 3. [axios - npm](https://www.npmjs.com/package/axios)
 4. [postmanlabs/swagger2-postman2: Module and library to convert Swagger 2.0 to a Postman Collection (v2.0)](https://github.com/postmanlabs/swagger2-postman2)
 5. [boschni/json-merger: Merge JSON files and objects with indicators like $import $remove $replace $merge](https://github.com/boschni/json-merger)
-
