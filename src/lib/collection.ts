@@ -19,10 +19,10 @@ function updateCollection(uid: string, data: CollectionData): void {
     data,
   })
     .then(() => {
-      console.log("update success");
+      console.log("Collection has been successfully updated");
     })
     .catch((err) => {
-      console.error("update failed:" + err);
+      console.error("Collection update has failed:" + err);
     });
 }
 
@@ -36,14 +36,14 @@ function getCollectionId(name: string, workspaceId?: string): Promise<string | n
     .then((response) => {
       let collection = response.data.collections.find((ele: any) => ele.name === name);
       if (collection == null) {
-        console.log("no collection with name: " + name);
+        console.log("No collection with name: " + name);
         return null;
       }
-      console.log("collection uid is:" + collection.uid);
+      console.log("Collection uid is: " + collection.uid);
       return collection.uid;
     })
     .catch((err) => {
-      console.error("get collection error: " + err);
+      console.error("Get collection error: " + err);
       process.exit(-1);
     });
 }
@@ -68,7 +68,7 @@ function createCollection(name: string, description?: string, workspaceId?: stri
     data,
   })
     .then((response) => {
-      console.log("collection created with uid: " + response.data.collection.uid);
+      console.log("Collection created with uid: " + response.data.collection.uid);
       return response.data.collection.uid;
     })
     .catch(async (err) => {
