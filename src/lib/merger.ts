@@ -32,6 +32,14 @@ enum MergeMode {
   REPLACE = "replace",
 }
 
+function createRootMap(source: string): CollectionMap {
+  return {
+    items: new Map(),
+    folders: new Map(),
+    source,
+  };
+}
+
 function deepMerge(target: any, source: any): any {
   if (!source) return target;
   if (!target) return source;
@@ -84,7 +92,7 @@ function merge(
 
   // Build collection maps
   const swaggerMap = buildCollectionMap(localSwaggerCollection, "swagger");
-  const postmanMap = buildCollectionMap(remotePostmanCollection, "postman");
+  const postmanMap = mergeMode === MergeMode.REPLACE ? createRootMap("postman") : buildCollectionMap(remotePostmanCollection, "postman");
 
   // Perform the merge with specified merge mode
   mergedCollection.collection.item = mergeCollectionMaps(postmanMap, swaggerMap, mergeMode);
@@ -100,11 +108,7 @@ function merge(
  * Creates a map representation of a collection for easier merging
  */
 function buildCollectionMap(collection: CollectionData, source: string): CollectionMap {
-  const rootMap: CollectionMap = {
-    items: new Map(),
-    folders: new Map(),
-    source,
-  };
+  const rootMap: CollectionMap = createRootMap(source);
 
   if (!collection?.collection?.item) {
     console.warn(`Invalid ${source} collection structure`);
@@ -151,23 +155,6 @@ function processItems(items: Item[], parentMap: CollectionMap): void {
  * Merges two collection maps, prioritizing Postman structure but updating with Swagger data
  */
 function mergeCollectionMaps(postmanMap: CollectionMap, swaggerMap: CollectionMap, mergeMode: MergeMode = MergeMode.PRESERVE_POSTMAN): Item[] {
-  // In REPLACE mode, just return all Swagger items
-  if (mergeMode === MergeMode.REPLACE) {
-    const result: Item[] = [];
-
-    // Add all Swagger items
-    swaggerMap.items.forEach((item) => {
-      result.push(item);
-    });
-
-    // Add all Swagger folders
-    swaggerMap.folders.forEach((folder) => {
-      result.push(folder.folderItem);
-    });
-
-    return result.sort((a, b) => a.name.localeCompare(b.name));
-  }
-
   const result: Item[] = [];
   const processedSwaggerItems = new Set<string>();
 
