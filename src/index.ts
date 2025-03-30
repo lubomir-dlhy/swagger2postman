@@ -2,69 +2,140 @@
 import dotenv from "dotenv";
 import { Command } from "commander";
 import fs from "fs";
+import path from "path";
 import * as collection from "./lib/collection";
 import * as workspace from "./lib/workspace";
 import fetch from "./lib/fetch";
-import { merge, CollectionData } from "./lib/merger";
-import config from "config";
+import { merge, CollectionData, MergeMode } from "./lib/merger";
 
 interface IServiceConfig {
   collectionName: string;
   workspaceName: string;
   url?: string;
   filePath?: string;
+  mergeMode?: MergeMode;
 }
 
 // Initialize environment variables
 dotenv.config();
 
-// Suppress config warnings
-process.env.SUPPRESS_NO_CONFIG_WARNING = "y";
-
-// Import converter
 const converter = require("openapi-to-postmanv2");
 
 // Setup command-line interface
 const program = new Command();
-program.version("1.0.0").option("-s --service <service>", "which service to convert").parse(process.argv);
+program
+  .version("1.0.0")
+  .option("-c, --config <path>", "path to config file")
+  .option("--collection-name <name>", "collection name")
+  .option("--workspace-name <name>", "workspace name")
+  .option("--url <url>", "swagger URL")
+  .option("--file-path <path>", "path to swagger file")
+  .option("--merge-mode <mode>", "merge mode (preserve_postman, preserve_swagger, replace)")
+  .parse(process.argv);
 
 const options = program.opts();
 
-console.log(`Service: ${options.service}`);
-
-if (!options.service || !config.has(options.service)) {
-  console.error("Service configuration not found");
-  process.exit(1);
+// Function to load config file
+function loadConfigFile(configPath: string): IServiceConfig | undefined {
+  try {
+    const absolutePath = path.resolve(configPath);
+    if (!fs.existsSync(absolutePath)) {
+      return undefined;
+    }
+    const config = require(absolutePath);
+    return config;
+  } catch (err) {
+    const error = err as Error;
+    console.error(`Error loading config file: ${error.message}`);
+    return undefined;
+  }
 }
 
-const serviceConfig = config.get(options.service) as IServiceConfig;
-// Validate service configuration
-if (!serviceConfig.collectionName) {
-  console.error("Service configuration must include collectionName");
-  process.exit(1);
-}
-if (!serviceConfig.url && !serviceConfig.filePath) {
-  console.error("Service configuration must include either url or filePath");
-  process.exit(1);
-}
-if (serviceConfig.url && serviceConfig.filePath) {
-  console.error("Service configuration must include either url or filePath, not both");
-  process.exit(1);
-}
-if (serviceConfig.url && !serviceConfig.url.startsWith("http")) {
-  console.error("Service configuration url must start with http or https");
-  process.exit(1);
-}
-if (serviceConfig.filePath && !fs.existsSync(serviceConfig.filePath)) {
-  console.error(`Service configuration filePath does not exist: ${serviceConfig.filePath}`);
-  process.exit(1);
-}
-if (serviceConfig.workspaceName && typeof serviceConfig.workspaceName !== "string") {
-  console.error("Service configuration workspaceName must be a string");
-  process.exit(1);
+function validateMergeMode(mode: string): MergeMode | undefined {
+  if (!mode) return undefined;
+  const normalizedMode = mode.toLowerCase();
+  switch (normalizedMode) {
+    case "preserve_postman":
+      return MergeMode.PRESERVE_POSTMAN;
+    case "preserve_swagger":
+      return MergeMode.PRESERVE_SWAGGER;
+    case "replace":
+      return MergeMode.REPLACE;
+    default:
+      return undefined;
+  }
 }
 
-const collectionName = serviceConfig.collectionName;
+// Function to get configuration
+function getConfig(): IServiceConfig {
+  // If direct parameters are provided, use them
+  if (options.collectionName || options.url || options.filePath) {
+    const config: IServiceConfig = {
+      collectionName: options.collectionName,
+      workspaceName: options.workspaceName || "",
+      url: options.url,
+      filePath: options.filePath,
+      mergeMode: validateMergeMode(options.mergeMode),
+    };
+    return validateServiceConfig(config);
+  }
+
+  // Try to load config file
+  const configPath = options.config || path.join(process.cwd(), "swagger2postman.config.js");
+  const config = loadConfigFile(configPath);
+
+  if (!config) {
+    console.error("No configuration found. Please provide either command line parameters or a config file.");
+    process.exit(1);
+  }
+
+  // Override merge mode if provided in CLI
+  if (options.mergeMode) {
+    const cliMergeMode = validateMergeMode(options.mergeMode);
+    if (cliMergeMode) {
+      config.mergeMode = cliMergeMode;
+    }
+  }
+
+  return validateServiceConfig(config);
+}
+
+// Function to validate service configuration
+function validateServiceConfig(config: IServiceConfig): IServiceConfig {
+  if (!config.collectionName) {
+    console.error("Configuration must include collectionName");
+    process.exit(1);
+  }
+  if (config.workspaceName && typeof config.workspaceName !== "string") {
+    console.error("Configuration workspaceName must be a string");
+    process.exit(1);
+  }
+  if (!config.url && !config.filePath) {
+    console.error("Configuration must include either url or filePath");
+    process.exit(1);
+  }
+  if (config.url && config.filePath) {
+    console.error("Configuration must include either url or filePath, not both");
+    process.exit(1);
+  }
+  if (config.url && !config.url.startsWith("http")) {
+    console.error("Configuration url must start with http or https");
+    process.exit(1);
+  }
+  if (config.filePath && !fs.existsSync(config.filePath)) {
+    console.error(`Configuration filePath does not exist: ${config.filePath}`);
+    process.exit(1);
+  }
+  if (config.mergeMode && !Object.values(MergeMode).includes(config.mergeMode)) {
+    const validModes = Object.values(MergeMode).join(", ");
+    console.error(`Invalid merge mode. Must be one of: ${validModes}`);
+    process.exit(1);
+  }
+  return config;
+}
+
+const config = getConfig();
+const collectionName = config.collectionName;
 
 // Run update
 update().catch((err) => {
@@ -145,7 +216,7 @@ function convertSwaggerToPostman(swaggerJson: any): Promise<any> {
 async function update(): Promise<void> {
   try {
     // Get swagger JSON from URL or file
-    const swaggerJson = await getSwaggerJson(serviceConfig);
+    const swaggerJson = await getSwaggerJson(config);
 
     // Enhance swagger info
     swaggerJson.info = {
@@ -159,9 +230,9 @@ async function update(): Promise<void> {
 
     // Get or create workspace if workspaceName is provided
     let workspaceId = "";
-    if (serviceConfig.workspaceName) {
-      console.log(`Looking for workspace: "${serviceConfig.workspaceName}"`);
-      workspaceId = await workspace.getOrCreateWorkspace(serviceConfig.workspaceName, `Workspace for ${serviceConfig.workspaceName} API`);
+    if (config.workspaceName) {
+      console.log(`Looking for workspace: "${config.workspaceName}"`);
+      workspaceId = await workspace.getOrCreateWorkspace(config.workspaceName, `Workspace for ${config.workspaceName} API`);
     }
 
     // Get or create collection ID (now using the resolved workspaceId)
@@ -173,7 +244,7 @@ async function update(): Promise<void> {
       try {
         // Use the resolved workspaceId
         id = await collection.createCollection(collectionName, `${collectionName} API`, workspaceId);
-        console.log(`Collection created successfully${workspaceId ? ` in workspace: ${serviceConfig.workspaceName}` : ""}`);
+        console.log(`Collection created successfully${workspaceId ? ` in workspace: ${config.workspaceName}` : ""}`);
         isNewCollection = true;
       } catch (createError: any) {
         console.error(`Failed to create collection: ${createError.message}`);
@@ -208,15 +279,19 @@ async function update(): Promise<void> {
         savedCollection.collection.item = [];
       }
 
-      // Merge and update the collection
-      mergedCollection = merge(savedCollection, collectionJson);
+      // Merge and update the collection with specified merge mode
+      mergedCollection = merge(collectionJson, savedCollection, config.mergeMode);
     }
 
     await collection.updateCollection(id, mergedCollection);
 
     console.log(`Successfully ${isNewCollection ? "created" : "updated"} ${collectionName} collection`);
   } catch (error: any) {
-    console.error(`Update failed: ${error.message}`);
+    if (error.message) {
+      console.error(`Update failed: ${error.message}`);
+    } else {
+      console.error("An unknown error occurred during the update process.");
+    }
     if (error.message?.includes("not permitted")) {
       console.error("Permission error: You don't have sufficient permissions to perform this action.");
       console.error("Solutions:");

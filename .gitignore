@@ -118,3 +118,5 @@ config/default.json
 
 # TypeScript output
 dist/
+
+swagger2postman.config.js

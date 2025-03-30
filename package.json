@@ -14,6 +14,7 @@
     "test": "ts-node src/index.ts -s test",
     "prepare": "npm run build",
     "prepublishOnly": "npm run build",
+    "postinstall": "chmod +x ./dist/index.js",
     "version:patch": "npm version patch",
     "version:minor": "npm version minor",
     "version:major": "npm version major"
@@ -31,7 +32,6 @@
   "dependencies": {
     "axios": "^0.21.1",
     "commander": "^6.2.0",
-    "config": "^3.3.3",
     "dotenv": "^16.0.3",
     "openapi-to-postmanv2": "^4.10.2",
     "postman-collection": "^5.0.2"

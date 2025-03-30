@@ -1,3 +1,5 @@
+import { randomUUID } from "crypto";
+
 interface Item {
   name: string;
   item?: Item[];
@@ -24,14 +26,53 @@ interface CollectionMap {
   source: string; // "swagger" or "postman"
 }
 
+enum MergeMode {
+  PRESERVE_POSTMAN = "preserve_postman",
+  PRESERVE_SWAGGER = "preserve_swagger",
+  REPLACE = "replace",
+}
+
+function deepMerge(target: any, source: any): any {
+  if (!source) return target;
+  if (!target) return source;
+
+  const result = { ...target };
+
+  for (const key in source) {
+    if (typeof source[key] === "object" && source[key] !== null) {
+      if (Array.isArray(source[key])) {
+        if (key === "query") {
+          const existingKeys = new Set(source[key]?.map((item: any) => item.key));
+          const newItems = target[key]?.filter((item: any) => !existingKeys.has(item.key)) || [];
+          result[key] = source[key].concat(...newItems);
+
+          // result[key] = source[key];
+        } else {
+          result[key] = source[key];
+        }
+      } else {
+        result[key] = deepMerge(result[key], source[key]);
+      }
+    } else if (source[key] !== undefined) {
+      result[key] = source[key];
+    }
+  }
+
+  return result;
+}
+
 /**
  * Merges a Swagger-generated collection with a Postman collection
  * @param localSwaggerCollection The collection generated from Swagger
  * @param remotePostmanCollection The collection from Postman
  * @returns A merged collection that preserves Postman metadata and includes Swagger updates
  */
-function merge(localSwaggerCollection: CollectionData, remotePostmanCollection: CollectionData): CollectionData {
-  console.log("Starting merge between Swagger and Postman collections");
+function merge(
+  localSwaggerCollection: CollectionData,
+  remotePostmanCollection: CollectionData,
+  mergeMode: MergeMode = MergeMode.PRESERVE_POSTMAN
+): CollectionData {
+  console.log(`Starting merge between Swagger and Postman collections using mode: ${mergeMode}`);
 
   // Create a new merged collection with Postman metadata
   const mergedCollection: CollectionData = {
@@ -45,8 +86,8 @@ function merge(localSwaggerCollection: CollectionData, remotePostmanCollection: 
   const swaggerMap = buildCollectionMap(localSwaggerCollection, "swagger");
   const postmanMap = buildCollectionMap(remotePostmanCollection, "postman");
 
-  // Perform the merge
-  mergedCollection.collection.item = mergeCollectionMaps(postmanMap, swaggerMap);
+  // Perform the merge with specified merge mode
+  mergedCollection.collection.item = mergeCollectionMaps(postmanMap, swaggerMap, mergeMode);
 
   // Ensure all IDs are properly set
   processIds(mergedCollection);
@@ -109,7 +150,7 @@ function processItems(items: Item[], parentMap: CollectionMap): void {
 /**
  * Merges two collection maps, prioritizing Postman structure but updating with Swagger data
  */
-function mergeCollectionMaps(postmanMap: CollectionMap, swaggerMap: CollectionMap): Item[] {
+function mergeCollectionMaps(postmanMap: CollectionMap, swaggerMap: CollectionMap, mergeMode: MergeMode = MergeMode.PRESERVE_POSTMAN): Item[] {
   const result: Item[] = [];
   const processedSwaggerItems = new Set<string>();
 
@@ -119,7 +160,7 @@ function mergeCollectionMaps(postmanMap: CollectionMap, swaggerMap: CollectionMa
     if (swaggerMap.items.has(itemName)) {
       // Merge the items, keeping Postman metadata
       const swaggerItem = swaggerMap.items.get(itemName)!;
-      const mergedItem = mergeItems(postmanItem, swaggerItem);
+      const mergedItem = mergeItems(postmanItem, swaggerItem, mergeMode);
       result.push(mergedItem);
       processedSwaggerItems.add(itemName);
     } else {
@@ -139,7 +180,7 @@ function mergeCollectionMaps(postmanMap: CollectionMap, swaggerMap: CollectionMa
       mergedFolder._merged = true;
 
       // Recursively merge folder contents
-      mergedFolder.item = mergeCollectionMaps(postmanFolder.map, swaggerFolder.map);
+      mergedFolder.item = mergeCollectionMaps(postmanFolder.map, swaggerFolder.map, mergeMode);
       result.push(mergedFolder);
 
       processedSwaggerItems.add(folderName);
@@ -170,25 +211,36 @@ function mergeCollectionMaps(postmanMap: CollectionMap, swaggerMap: CollectionMa
 /**
  * Merges two items, preserving Postman metadata but updating with Swagger definitions
  */
-function mergeItems(postmanItem: Item, swaggerItem: Item): Item {
+function mergeItems(postmanItem: Item, swaggerItem: Item, mode: MergeMode = MergeMode.PRESERVE_POSTMAN): Item {
   const mergedItem = { ...postmanItem };
 
-  // Update with Swagger request information
-  mergedItem.request = swaggerItem.request || mergedItem.request;
+  switch (mode) {
+    case MergeMode.REPLACE:
+      // Replace everything except IDs with Swagger data
+      mergedItem.request = swaggerItem.request;
+      mergedItem.response = swaggerItem.response;
+      mergedItem.description = swaggerItem.description;
+      break;
 
-  // Keep Postman examples if available, otherwise use Swagger examples
-  if (!mergedItem.response || mergedItem.response.length === 0) {
-    mergedItem.response = swaggerItem.response;
+    case MergeMode.PRESERVE_SWAGGER:
+      // Deep merge with Swagger taking priority
+      mergedItem.request = deepMerge(postmanItem.request, swaggerItem.request);
+      mergedItem.response = swaggerItem.response || postmanItem.response;
+      mergedItem.description = swaggerItem.description || mergedItem.description;
+      break;
+
+    case MergeMode.PRESERVE_POSTMAN:
+    default:
+      // Deep merge with Postman taking priority
+      mergedItem.request = deepMerge(swaggerItem.request, postmanItem.request);
+      mergedItem.response = postmanItem.response || swaggerItem.response;
+      mergedItem.description = postmanItem.description || swaggerItem.description;
+      break;
   }
 
-  // Update description and other metadata
-  mergedItem.description = swaggerItem.description || mergedItem.description;
-
-  // Preserve Postman IDs
+  // Always preserve Postman IDs
   mergedItem._postman_id = postmanItem._postman_id;
   mergedItem.id = postmanItem.id || swaggerItem.id;
-
-  // Mark as merged
   mergedItem._merged = true;
 
   return mergedItem;
@@ -217,4 +269,4 @@ function processIds(collection: CollectionData): void {
   processItemIds(collection.collection.item);
 }
 
-export { merge, CollectionData };
+export { merge, CollectionData, MergeMode };
