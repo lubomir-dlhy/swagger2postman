@@ -151,6 +151,23 @@ function processItems(items: Item[], parentMap: CollectionMap): void {
  * Merges two collection maps, prioritizing Postman structure but updating with Swagger data
  */
 function mergeCollectionMaps(postmanMap: CollectionMap, swaggerMap: CollectionMap, mergeMode: MergeMode = MergeMode.PRESERVE_POSTMAN): Item[] {
+  // In REPLACE mode, just return all Swagger items
+  if (mergeMode === MergeMode.REPLACE) {
+    const result: Item[] = [];
+
+    // Add all Swagger items
+    swaggerMap.items.forEach((item) => {
+      result.push(item);
+    });
+
+    // Add all Swagger folders
+    swaggerMap.folders.forEach((folder) => {
+      result.push(folder.folderItem);
+    });
+
+    return result.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
   const result: Item[] = [];
   const processedSwaggerItems = new Set<string>();
 
@@ -215,13 +232,6 @@ function mergeItems(postmanItem: Item, swaggerItem: Item, mode: MergeMode = Merg
   const mergedItem = { ...postmanItem };
 
   switch (mode) {
-    case MergeMode.REPLACE:
-      // Replace everything except IDs with Swagger data
-      mergedItem.request = swaggerItem.request;
-      mergedItem.response = swaggerItem.response;
-      mergedItem.description = swaggerItem.description;
-      break;
-
     case MergeMode.PRESERVE_SWAGGER:
       // Deep merge with Swagger taking priority
       mergedItem.request = deepMerge(postmanItem.request, swaggerItem.request);
