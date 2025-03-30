@@ -14,6 +14,7 @@ interface IServiceConfig {
   url?: string;
   filePath?: string;
   mergeMode?: MergeMode;
+  postmanApiKey?: string;
 }
 
 // Initialize environment variables
@@ -31,6 +32,7 @@ program
   .option("--url <url>", "swagger URL")
   .option("--file-path <path>", "path to swagger file")
   .option("--merge-mode <mode>", "merge mode (preserve_postman, preserve_swagger, replace)")
+  .option("--postman-api-key <key>", "Postman API key")
   .parse(process.argv);
 
 const options = program.opts();
@@ -76,6 +78,7 @@ function getConfig(): IServiceConfig {
       url: options.url,
       filePath: options.filePath,
       mergeMode: validateMergeMode(options.mergeMode),
+      postmanApiKey: options.postmanApiKey,
     };
     return validateServiceConfig(config);
   }
@@ -89,12 +92,15 @@ function getConfig(): IServiceConfig {
     process.exit(1);
   }
 
-  // Override merge mode if provided in CLI
+  // Override config with CLI options
   if (options.mergeMode) {
     const cliMergeMode = validateMergeMode(options.mergeMode);
     if (cliMergeMode) {
       config.mergeMode = cliMergeMode;
     }
+  }
+  if (options.postmanApiKey) {
+    config.postmanApiKey = options.postmanApiKey;
   }
 
   return validateServiceConfig(config);
@@ -131,6 +137,15 @@ function validateServiceConfig(config: IServiceConfig): IServiceConfig {
     console.error(`Invalid merge mode. Must be one of: ${validModes}`);
     process.exit(1);
   }
+
+  // Set POSTMAN_API_KEY from config if provided
+  if (config.postmanApiKey) {
+    process.env.POSTMAN_API_KEY = config.postmanApiKey;
+  } else if (!process.env.POSTMAN_API_KEY) {
+    console.error("Postman API key must be provided via environment variable POSTMAN_API_KEY, config file, or --postman-api-key option");
+    process.exit(1);
+  }
+
   return config;
 }
 
